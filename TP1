@@ -1,0 +1,24 @@
+
+*( Con la variable ck_control esperamos a que la señal del reloj cambie de valor para proseguir nuestro programa. A esta técnica se le llama polling y 
+    aunque sea muy rápida y útil para aprender/prácticar a la hora de la verdad se utilizarán otros métodos)*
+//POLLING
+"data".ck_control := "Clock_0.5Hz";
+WHILE "data".ck_control = "Clock_0.5Hz" DO
+    ;
+END_WHILE;
+//...
+//CODE
+//... 
+
+//**********************************************************//
+
+// UTILIZANDO FUNCIONES PREDEFINIDAS DEL SISTEMA
+
+
+"R_TRIG_DB"(CLK := "Clock_0.5Hz", Q => "data".ck_control); //RISING EDGE
+IF "data".ck_control THEN 
+...
+END_IF;
+"F_TRIG_DB"(...) //FALLING EDGE
+...
+...
